@@ -37,10 +37,15 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget _submitPassword() {
-    return RaisedButton(
-      child: Text('Submit'),
-      onPressed: () {},
+  Widget _submitPassword(Bloc bloc) {
+    return StreamBuilder(
+      stream: bloc.submitValid,
+      builder: (BuildContext context, snapshot) {
+        return RaisedButton(
+          child: Text('Submit'),
+          onPressed: snapshot.hasData ? bloc.submit : null,
+        );
+      },
     );
   }
 
@@ -56,7 +61,7 @@ class LoginScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.only(top: 10.0),
           ),
-          _submitPassword(),
+          _submitPassword(bloc),
         ],
       ),
     );
