@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './screens/login_screen.dart';
+import './BLoC/screens/login_screen.dart';
+// import './statefullwidgets/screens/login_screen.dart';
 
 class App extends StatelessWidget {
   @override
